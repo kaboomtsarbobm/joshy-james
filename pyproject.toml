@@ -1,11 +1,11 @@
 [project]
-name = "polos"
+name = "can_i_ever_afford_a_house_no"
 version = "1.0.0"
-
-description = "verities favorites"
-license = "MIT"  # replace with your own license
+description = "Polos: give players packs of random balls"
+license = "MIT"
 license-files = ["LICENSE"]
-authors = [
-    { name = "randomdex", email = "randomdex3@gmail.com" },
-]
 readme = "README.md"
+authors = [{ name = "kaboomtsarbobm" }]
+
+[project.urls]
+Homepage = "https://github.com/kaboomtsarbobm/joshy-james"
