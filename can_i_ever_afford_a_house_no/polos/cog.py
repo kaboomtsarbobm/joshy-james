@@ -105,7 +105,7 @@ class PolosCog(commands.Cog):
 
         if random.random() < 0.5:
             await interaction.response.send_message(
-                "[(1) Nintendo is epic. PC sucks. - YouTube](https://www.youtube.com/watch?v=CdYzoDz1EkI) (kaboomtsarbobm wrote this, you get this at a 50% chance"
+                "https://www.youtube.com/watch?v=CdYzoDz1EkI kaboomtsarbobm wrote this, you get this at a 50% chance LOLLLLLLLLLLLLLLL 😂😂😂😂😂😂😂😂😂😂😂😂😂🤣🤣🤣🤣🤣🤣🤣🤣🤣🤣🤣🤣https://en.wikipedia.org/wiki/Fulton_Street_(Manhattan)"
             )
             return
 
