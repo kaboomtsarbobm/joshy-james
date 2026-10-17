@@ -1,0 +1,11 @@
+[project]
+name = "polos"
+version = "1.0.0"
+
+description = "verities favorites"
+license = "MIT"  # replace with your own license
+license-files = ["LICENSE"]
+authors = [
+    { name = "randomdex", email = "randomdex3@gmail.com" },
+]
+readme = "README.md"
