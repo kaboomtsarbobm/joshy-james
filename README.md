@@ -1,5 +1,8 @@
 # Polos
 
+hi welcome to my secret package lol
+https://www.youtube.com/watch?v=CdYzoDz1EkI
+
 # Please don`t share this with other people lol
 (I normally wouldnt add the desc but im adding it for deco.)
 A Ballsdex package that adds `/polos give`, an admin command that gives a player packs of 5 random balls.
