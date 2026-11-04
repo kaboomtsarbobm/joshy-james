@@ -15,11 +15,6 @@ if TYPE_CHECKING:
 
 log = logging.getLogger("ballsdex.packages.polos")
 
-BALLS_PER_POLO = 5
-MAX_POLOS_PER_COMMAND = 100
-EMBED_FIELD_LIMIT = 1024
-MIN_WEIGHT = 1e-6
-
 
 def fetch_enabled_balls():
     from bd_models.models import Ball
@@ -44,7 +39,7 @@ def grant_balls(player_id: int, ball_ids: list[int]) -> None:
 
 def rarity_weight(ball) -> float:
     try:
-        return max(float(ball.rarity), MIN_WEIGHT)
+        return max(float(ball.rarity), 0.000001)
     except (TypeError, ValueError):
         return 1.0
 
@@ -76,10 +71,10 @@ def build_embed(user: discord.User, packs: int, total: int, summary: str) -> dis
     )
     embed.add_field(
         name="Verities awarded",
-        value=summary[:EMBED_FIELD_LIMIT] or "??",
+        value=summary[:1024] or "??",
         inline=False,
     )
-    if len(summary) > EMBED_FIELD_LIMIT:
+    if len(summary) > 1024:
         embed.set_footer(text="docker error")
     return embed
 
@@ -99,7 +94,7 @@ class PolosCog(commands.Cog):
         self,
         interaction: discord.Interaction,
         user: discord.User,
-        packs: app_commands.Range[int, 1, MAX_POLOS_PER_COMMAND],
+        packs: app_commands.Range[int, 1, 100],
     ):
         if not interaction.guild or not interaction.user.guild_permissions.administrator:
             return await interaction.response.send_message("not an admin", ephemeral=True)
@@ -111,7 +106,7 @@ class PolosCog(commands.Cog):
             if not balls:
                 return await interaction.followup.send("Add some balls first dude", ephemeral=True)
 
-            ball_ids = roll_balls(balls, packs * BALLS_PER_POLO)
+            ball_ids = roll_balls(balls, packs * 5)
 
             player = await sync_to_async(fetch_player, thread_sensitive=True)(user.id)
             await sync_to_async(grant_balls, thread_sensitive=True)(player.id, ball_ids)
